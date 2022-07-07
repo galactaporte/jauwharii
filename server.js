@@ -21,7 +21,7 @@ app.use(express.static('public')) //folder to contain all styles sheet,javascrip
 //connecting to the database on mongoDB via mongoose
 const mongoose = require ('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: false })
+    useNewUrlParser: false }) //unseuccessful? may be deprecated. toggle between true/false
 //!do not hardcode the database URL. make mongoose connection dependent on the 'environment'
 //ie: @development, connect to DB via local mongoDBserver and @deployment, connect via webhost [npm i --save-dev dotenv]
 const db = mongoose.connection
