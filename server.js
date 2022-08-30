@@ -2,20 +2,26 @@
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config() //unsuccesful, try .load or .parse
-
 }
 
 const express = require ('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
+const bodyParser = require ('body-parser') //this library allows us to access the different input elements from the actual server
 
-const indexRouter = require('./routes/index') //this command links the index.js fomr the ROUTER folder
+//these commands link the .js from the ROUTES folder
+const indexRouter = require('./routes/index') 
+const authorRouter = require('./routes/authors') 
+
 
 app.set('view engine', 'ejs') //ejs to be used as the view engine
 app.set('views', __dirname + '/views') // (append project directory path) set source for 'views' directory(folder)
 app.set('layout', 'layouts/layout') //set 'layout' file directory (eg: HTML header or footer for multiple use)
 app.use(expressLayouts) 
 app.use(express.static('public')) //folder to contain all styles sheet,javascript, images and all static files
+app.use(bodyParser.urlencoded ({ limit: '10mb', extended: false })) 
+
+
 
 
 //connecting to the database on mongoDB via mongoose
@@ -30,6 +36,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 app.use('/', indexRouter)
+app.use('/authors', authorRouter)
 
 app.listen(process.env.PORT || 3000)
 

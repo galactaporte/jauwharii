@@ -13,10 +13,13 @@ file may simply contain pure text without any HTML formatting!)-->
     <title>JauwharII</title>
 </head>
 <body>
-    HEADER
+    <!-- HEADER -->
     <br>
+    <!-- partials here are like reusable buttons that are also used in the header -->
+    <%-include ('../partials/header.ejs') %> 
+    <%-include ('../partials/errorMessage.ejs') %> 
     <%-body%>
     <br>
-    FOOTER 
+    <!-- FOOTER  -->
 </body>
 </html>

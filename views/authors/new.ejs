@@ -1,0 +1,16 @@
+<!-- we want to use the 'author' variable (schema) for display here, capture it via a form  -->
+
+<h2>new author</h2>
+<form action="/authors" method="POST">
+
+    <!-- NOTE: we will not use the 'input' bar to add into the form, however we will 
+    use a 'partial' since it can be reused both in the 'add' and 'edit' form field -->
+    <%- include ('_form_fields') %>
+
+    <!-- this 'cancel' button redirects user back to the 'all authors' page -->
+    <a href="/authors">Cancel</a> 
+
+    <button type="submit">Create</button>
+    <!-- this 'submit' button sends the entered data to the 'POST' of routes>author -->
+
+</form>
