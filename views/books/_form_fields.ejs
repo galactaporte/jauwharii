@@ -1,0 +1,44 @@
+<!-- this is a partial file but it is not stored in the partial folder as a generic 
+partial file, because it is used and reused exclusively in the 'authors' route only -->
+
+<!-- in naming the ejs file, we used an underscore '_' to distinguish between 
+    a partial and a direct-link server file -->
+<div>
+    <label>Event Title</label>
+    <input type="text" name="title" value="<%= book.title %>">
+</div>
+
+<div>
+<label>Homeschool</label>
+<select name="author">
+<% authors.forEach(author => { %>
+    <% if (author.id === book.author) {%>
+        <option selected label="<%= author.name %>"value="<%=author.id %>">
+    <% }else { %>
+        <option label="<%=author.name %>" value="<%= author.id %>">
+    <% } %>
+<% }) %>
+</select>
+</div>
+
+<div>
+    <label>Publish Date</label>
+    <input type="date" name="publishDate" 
+           value="<%= book.publishDate == null ? '' : 
+           book.publishDate.toISOString().split('T')[0] %>">
+</div>
+
+<div>
+    <label>Max No. of Attendees</label>
+    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %>">
+</div>
+
+<div>
+    <label>Event Poster</label>
+    <input type="file" name="cover">
+</div>
+
+<div>
+    <label>Event Description</label>
+    <textarea name="description"><%= book.description %></textarea>
+</div>

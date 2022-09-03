@@ -1,14 +1,17 @@
 <!-- we want to use the 'author' variable (schema) for display here, capture it via a form  -->
 <br>
-<h2>Please enter new homeschool...</h2>
-<form action="/authors" method="POST">
+<h2>Please enter new event...</h2>
+
+<!-- using multer (multipart form) telling the server that our form might be sending a 
+multipart data which may include a 'file' -->
+<form action="/books" method="POST" enctype="multipart/form-data">
 
     <!-- NOTE: we will not use the 'input' bar to add into the form, however we will 
     use a 'partial' since it can be reused both in the 'add' and 'edit' form field -->
     <%- include ('_form_fields') %>
 
     <!-- this 'cancel' button redirects user back to the 'all authors' page -->
-    <a href="/authors">Cancel</a> 
+    <a href="/books">Cancel</a> 
 
     <button type="submit">Create</button>
     <!-- this 'submit' button sends the entered data to the 'POST' of routes>author -->
