@@ -46,14 +46,4 @@ bookSchema.virtual('coverImagePath').get(function() {
     }
   })
   
-
-// multer-wise,we create a virtual book schema to extract the image path name
-// bookSchema.virtual('coverImagePath').get(function() {
-//     if (this.coverImageName != null) {
-//         return path.join('/', coverImageBasePath, this.coverImageName)
-//     }
-// })
-//use normal 'function' instead of arrow to be able to access the 'this' property
-
-module.exports = mongoose.model('Book', bookSchema) //name of table, spec name of object
-// module.exports.coverImageBasePath = coverImageBasePath
+  module.exports = mongoose.model('Book', bookSchema)
