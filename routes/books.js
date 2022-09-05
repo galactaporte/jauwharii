@@ -7,7 +7,7 @@ const Author = require ('../models/author')
 //const uploadPath = path.join('public', Book.coverImageBasePath) //combining 2 diff paths
 
 //const multer = require ('multer')
-const imageMimeTypes = ['images/jpeg', 'images/png','images/gif',]
+const imageMimeTypes = ['images/jpeg', 'images/png','images/gif']
 // const upload = multer({
 //     dest: uploadPath,
 //     //specify the image file type that server accepts
@@ -15,6 +15,7 @@ const imageMimeTypes = ['images/jpeg', 'images/png','images/gif',]
 //         callback(null, imageMimeTypes.includes(file.mimetype))
 //   }
 // })
+
 
 //All books route
 router.get('/', async (req, res) => {
