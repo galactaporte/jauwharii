@@ -4,7 +4,8 @@
 
 <!-- using multer (multipart form) telling the server that our form might be sending a 
 multipart data which may include a 'file' -->
-<form action="/books" method="POST" enctype="multipart/form-data">
+<form action="/books" method="POST"> 
+<!-- to use multer, inc in the form tag : enctype="multipart/form-data"> -->
 
     <!-- NOTE: we will not use the 'input' bar to add into the form, however we will 
     use a 'partial' since it can be reused both in the 'add' and 'edit' form field -->
