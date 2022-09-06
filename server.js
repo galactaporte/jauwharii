@@ -8,6 +8,7 @@ const express = require ('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require ('body-parser') //this library allows us to access the different input elements from the actual server
+const methodOverride = require('method-override')
 
 //these commands link the .js from the ROUTES folder
 const indexRouter = require('./routes/index') 
@@ -18,7 +19,8 @@ const bookRouter = require('./routes/books')
 app.set('view engine', 'ejs') //ejs to be used as the view engine
 app.set('views', __dirname + '/views') // (append project directory path) set source for 'views' directory(folder)
 app.set('layout', 'layouts/layout') //set 'layout' file directory (eg: HTML header or footer for multiple use)
-app.use(expressLayouts) 
+app.use(expressLayouts)
+app.use(methodOverride('_method'))
 app.use(express.static('public')) //folder to contain all styles sheet,javascript, images and all static files
 app.use(bodyParser.urlencoded ({ limit: '10mb', extended: false })) 
 
