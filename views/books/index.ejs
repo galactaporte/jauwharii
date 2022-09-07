@@ -1,25 +1,24 @@
-<h2>Search Event...</h2>
+<h2 class="page-header">Search event by...</h2>
 <form action="/books" method="GET">
-    <div>
-        <label>Event Title</label>
-        <input type="text" name="title" value ="<%= 
-        searchOptions.title %>">
-    </div>  
-    <div>
-        <label>Event After...</label>
-        <input type="date" name="publishedAfter" value ="<%= 
-        searchOptions.publishedAfter %>">
-    </div>  
-    <div>
-        <label>Event Before...</label>
-        <input type="date" name="publishedBefore" value ="<%= 
-        searchOptions.publishedBefore %>">
-    </div>  
-
+  <div>
+    <label>event name</label>
+    <input type="text" name="title" value="<%= searchOptions.title %>">
+  </div>
+  <div>
+    <label>date after </label>
+    <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+  </div>
+  <div>
+    <label>date before </label>
+    <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+  </div>
   <button type="submit">Search</button>
+
 </form>
 <div>
   <% books.forEach(book => { %>
-    <img height="150" width="100" src="<%= book.coverImagePath %>">
+    <a href="/books/<%= book.id %>">
+      <img height="150" width="100" src="<%= book.coverImagePath %>">
+    </a>
   <% }) %>
 </div>

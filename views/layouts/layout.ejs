@@ -3,7 +3,6 @@ format duplication. the %- sign below marks the section where the content
 of each different page will sit (eg: views/layouts/index.ejs ....and this
 file may simply contain pure text without any HTML formatting!)-->
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +16,16 @@ file may simply contain pure text without any HTML formatting!)-->
   <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
   <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
   <script defer src="/javascripts/fileUpload.js"></script>
- 
-<title>JauwharII</title>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <title>Jauwhar 2.0</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <br>
-    <!-- partials here are like reusable buttons that are also used in the header -->
-    <%-include ('../partials/header.ejs') %> 
-    <%-include ('../partials/errorMessage.ejs') %> 
-    <%-body%>
-    <br>
-    <!-- FOOTER  -->
+  <div class="container">
+    <%- include('../partials/header.ejs') %>
+    <div class="inner-container">
+      <%- include('../partials/errorMessage.ejs') %>
+      <%- body %>
+    </div>
+  </div>
 </body>
 </html>
